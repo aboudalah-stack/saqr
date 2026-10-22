@@ -1,0 +1,15 @@
+name: Move release tags to protected build
+on:
+  push:
+    paths: ['.github/workflows/move-tags.yml']
+permissions:
+  contents: write
+jobs:
+  move:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          git tag -f apk-latest
+          git tag -f saqr-web-apk
+          git push -f origin apk-latest saqr-web-apk
