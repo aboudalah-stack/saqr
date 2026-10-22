@@ -40,6 +40,8 @@ public class MainActivity extends Activity {
     s.setDatabaseEnabled(true);
     s.setMediaPlaybackRequiresUserGesture(false);
     s.setCacheMode(WebSettings.LOAD_DEFAULT);
+    // lets the game know it runs inside the app (Facebook login then returns via saqr://login)
+    s.setUserAgentString(s.getUserAgentString() + " SaqrApp/1.2");
     web.setWebViewClient(new WebViewClient() {
       @Override
       public boolean shouldOverrideUrlLoading(WebView v, WebResourceRequest r) {
@@ -64,8 +66,31 @@ public class MainActivity extends Activity {
       }
     });
     setContentView(web);
-    if (state != null) web.restoreState(state); else web.loadUrl(GAME_URL);
+    String back = loginReturnUrl(getIntent());
+    if (back != null) web.loadUrl(back);
+    else if (state != null) web.restoreState(state);
+    else web.loadUrl(GAME_URL);
     hideBars();
+  }
+
+  /** Facebook login opens in the phone's browser and comes back as saqr://login#access_token=… */
+  private String loginReturnUrl(Intent i) {
+    if (i == null || i.getData() == null) return null;
+    Uri u = i.getData();
+    if (!"saqr".equals(u.getScheme())) return null;
+    String frag = u.getEncodedFragment(), q = u.getEncodedQuery();
+    String url = GAME_URL;
+    if (q != null && !q.isEmpty()) url += "?" + q;
+    if (frag != null && !frag.isEmpty()) url += "#" + frag;
+    return url;
+  }
+
+  @Override
+  protected void onNewIntent(Intent i) {
+    super.onNewIntent(i);
+    setIntent(i);
+    String back = loginReturnUrl(i);
+    if (back != null && web != null) web.loadUrl(back);
   }
 
   private void hideBars() {
