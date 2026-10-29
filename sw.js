@@ -1,6 +1,6 @@
 // Network first for the game's own files, so updates show up right away; the cached copy is only a fallback when offline.
 // Supabase and other outside requests are never touched.
-const CACHE = 'saqr-v19';
+const CACHE = 'saqr-v20';
 self.addEventListener('install', e => self.skipWaiting());
 self.addEventListener('activate', e => e.waitUntil(
   caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())));
