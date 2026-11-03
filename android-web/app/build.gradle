@@ -1,13 +1,13 @@
 plugins { id 'com.android.application' }
 android {
   namespace 'com.saqr.web'
-  compileSdk 35
+  compileSdk 36
   defaultConfig {
     applicationId 'com.saqr.poker'
     minSdk 24
-    targetSdk 35
-    versionCode 5
-    versionName '1.4'
+    targetSdk 36
+    versionCode 6
+    versionName '1.5'
   }
   // Store builds are signed with the permanent Saqr Poker key (key comes from GitHub secrets, see .github/workflows/apk-release.yml)
   signingConfigs {
