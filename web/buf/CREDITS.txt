@@ -1,0 +1,12 @@
+Buffalo slot symbol photos (cropped and colour-adjusted) from Wikimedia Commons:
+- pb.webp  bison  — "Gfp-face-of-america-bison.jpg", Yinan Chen, Public Domain
+           https://commons.wikimedia.org/wiki/File:Gfp-face-of-america-bison.jpg
+- pc.webp  cougar — "Happy Cougar (4145509570).jpg", Eric Kilby, CC BY-SA 2.0
+           https://commons.wikimedia.org/wiki/File:Happy_Cougar_(4145509570).jpg
+- pe.webp  eagle  — "Haliaeetus leucocephalus LC0195 edit 1.jpg", Jörg Hempel / Samwb123, CC BY-SA 3.0 DE
+           https://commons.wikimedia.org/wiki/File:Haliaeetus_leucocephalus_LC0195_edit_1.jpg
+- pd.webp  elk    — "Let 'er Rip! (15893264623).jpg", USFWS Mountain-Prairie, CC BY 2.0
+           https://commons.wikimedia.org/wiki/File:Let_%27er_Rip!_(15893264623).jpg
+- pf.webp  wolf   — "Front view of a resting Canis lupus ssp.jpg", Gary Kramer (USFWS), Public Domain
+           https://commons.wikimedia.org/wiki/File:Front_view_of_a_resting_Canis_lupus_ssp.jpg
+The cropped versions of the CC BY-SA photos are shared under the same licences.
