@@ -1,7 +1,7 @@
 name: Build Saqr Web APK
+# The signed APK is now built in the private repo (apk-release.yml) and uploaded here.
+# This debug build only runs by hand, so it can't replace the signed file by accident.
 on:
-  push:
-    paths: ['android-web/**', '.github/workflows/apk-web.yml']
   workflow_dispatch:
 permissions:
   contents: write
