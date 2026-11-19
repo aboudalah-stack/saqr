@@ -2,6 +2,7 @@ package com.saqr.web;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
@@ -65,6 +67,15 @@ public class MainActivity extends Activity {
         return true;
       }
     });
+    // lets the card tables switch between landscape and upright (portrait) play
+    web.addJavascriptInterface(new Object() {
+      @JavascriptInterface
+      public void orient(final String mode) {
+        runOnUiThread(new Runnable() { public void run() {
+          setRequestedOrientation("portrait".equals(mode) ? ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT : ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+        }});
+      }
+    }, "SaqrNative");
     setContentView(web);
     String back = loginReturnUrl(getIntent());
     if (back != null) web.loadUrl(back);
